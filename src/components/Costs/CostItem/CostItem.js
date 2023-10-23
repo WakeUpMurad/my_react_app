@@ -9,14 +9,16 @@ const CostItem = ({date, description, amount}) => {
         setDescript('New cost')
     }
     return (
-        <Card className={'cost-item'}>
-            <CostDate date={date}/>
-            <div className={'cost-item__description'}>
-                <h2>{descript}</h2>
-                <div className={'cost-item__price'}>${amount}</div>
-            </div>
-            <button onClick={changeDescriptionHandle}>Изменить описание</button>
-        </Card>
+        <li>
+            <Card className={'cost-item'}>
+                <CostDate date={date}/>
+                <div className={'cost-item__description'}>
+                    <h2>{descript}</h2>
+                    <div className={'cost-item__price'}>${amount}</div>
+                </div>
+                <button onClick={changeDescriptionHandle}>Изменить описание</button>
+            </Card>
+        </li>
     );
 };
 

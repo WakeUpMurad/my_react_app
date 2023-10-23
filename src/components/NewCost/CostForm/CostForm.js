@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import './CostForm.css'
 
-const CostForm = (props) => {
+const CostForm = ({onSaveCostData, onCancel}) => {
 
     const [userInput, setUserInput ] = useState({
-        name: '',
+        description: '',
         amount: '',
         date: ''
     })
@@ -12,7 +12,7 @@ const CostForm = (props) => {
         setUserInput((previousState) => {
             return {
                 ...previousState,
-                name: event.target.value
+                description: event.target.value
             }
         })
     }
@@ -40,9 +40,9 @@ const CostForm = (props) => {
             ...userInput,
             date: new Date(userInput.date)
         }
-        props.onSaveCostData(costData)
+        onSaveCostData(costData)
         setUserInput({
-            name: '',
+            description: '',
             amount: '',
             date: ''
         })
@@ -65,6 +65,7 @@ const CostForm = (props) => {
                 </div>
                 <div className={'new-cost__action'}>
                     <button type={"submit"}>Добавить расход</button>
+                    <button type={"submit"} onClick={onCancel}>Отмена</button>
                 </div>
             </div>
         </form>
